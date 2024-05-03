@@ -1,5 +1,5 @@
 name: flutter_auto_route
-description: "A new Flutter project."
+description: "Flutter 'auto_route' 샘플 코드"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -21,6 +21,27 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.3.4 <4.0.0'
 
+scripts:
+  run:
+    $before: flutter pub get
+    $script: flutter run
+  gen:
+    build: dart run build_runner build --delete-conflicting-outputs
+    watch: dart run build_runner watch --delete-conflicting-outputs
+  build:
+    $before: flutter pub get
+    $after: echo "Build done!"
+    web: flutter build web --flavor production -t lib/main.dart
+    android:
+      apk: flutter build apk --flavor production -t lib/main.dart
+      appbundle: flutter build appbundle --flavor production -t lib/main.dart
+    ios:
+      ipa: flutter build ipa --flavor production -t lib/main.dart
+      ios: flutter build ios --flavor production -t lib/main.dart
+  reset: |
+    flutter clean 
+    flutter pub get
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -35,6 +56,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  flutter_flavor: ^3.1.3
 
 dev_dependencies:
   flutter_test:
