@@ -9,7 +9,8 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: const Text(
           "First Screen",
           style: TextStyle(color: Colors.white),
         ),

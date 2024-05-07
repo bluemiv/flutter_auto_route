@@ -11,16 +11,27 @@ class HomeScreen extends StatelessWidget {
     final router = AutoRouter.of(context);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: const Text(
+          "Auto route 예제",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: SafeArea(
-        child: Column(
-          children: [
-            const Text("home screen"),
-            ElevatedButton(
-                onPressed: () {
-                  router.push(const FirstRoute());
-                },
-                child: const Text("Go to first screen"))
-          ],
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("home screen"),
+              ElevatedButton(
+                  onPressed: () {
+                    router.push(const FirstRoute());
+                  },
+                  child: const Text("Go to first screen"))
+            ],
+          ),
         ),
       ),
     );
