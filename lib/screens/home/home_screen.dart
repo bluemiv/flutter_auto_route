@@ -26,10 +26,17 @@ class HomeScreen extends StatelessWidget {
             children: [
               const Text("home screen"),
               ElevatedButton(
-                  onPressed: () {
-                    router.push(const FirstRoute());
-                  },
-                  child: const Text("Go to first screen"))
+                onPressed: () {
+                  router.push(const FirstRoute());
+                },
+                child: const Text("Go to first screen"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  router.push(SecondRoute(num: 1));
+                },
+                child: const Text("Go to second screen"),
+              )
             ],
           ),
         ),

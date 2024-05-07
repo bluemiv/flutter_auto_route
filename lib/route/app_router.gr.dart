@@ -27,6 +27,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomeScreen(),
       );
     },
+    SecondRoute.name: (routeData) {
+      final args = routeData.argsAs<SecondRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SecondScreen(
+          key: args.key,
+          num: args.num,
+        ),
+      );
+    },
   };
 }
 
@@ -56,4 +66,41 @@ class HomeRoute extends PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SecondScreen]
+class SecondRoute extends PageRouteInfo<SecondRouteArgs> {
+  SecondRoute({
+    Key? key,
+    required int num,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SecondRoute.name,
+          args: SecondRouteArgs(
+            key: key,
+            num: num,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SecondRoute';
+
+  static const PageInfo<SecondRouteArgs> page = PageInfo<SecondRouteArgs>(name);
+}
+
+class SecondRouteArgs {
+  const SecondRouteArgs({
+    this.key,
+    required this.num,
+  });
+
+  final Key? key;
+
+  final int num;
+
+  @override
+  String toString() {
+    return 'SecondRouteArgs{key: $key, num: $num}';
+  }
 }
