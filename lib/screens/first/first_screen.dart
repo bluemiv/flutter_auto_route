@@ -15,7 +15,7 @@ class FirstScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Text("first screen"),
       ),
     );
